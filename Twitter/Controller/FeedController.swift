@@ -1,5 +1,5 @@
 //
-//  MainTabController.swift
+//  FeedController.swift
 //  Twitter
 //
 //  Created by Ivan Kopiev on 29.06.2021.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class MainTabController: UITabBarController {
-
+class FeedController: UIViewController {
+  
     // MARK: - Properties
     
     // MARK: - Lifecycle
