@@ -10,14 +10,39 @@ import UIKit
 class MainTabController: UITabBarController {
 
     // MARK: - Properties
+    let actionButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "line.horizontal.3.circle"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 28
+        return button
+    }()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewControllers()
+        configureUI()
     }
     
     // MARK: - Helpers
+    func configureUI() {
+        view.addSubview(actionButton)
+        createConstraints()
+    }
+    
+    func createConstraints() {
+        NSLayoutConstraint.activate([
+            // Button
+            actionButton.heightAnchor.constraint(equalToConstant: 56),
+            actionButton.widthAnchor.constraint(equalToConstant: 56),
+            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -64),
+            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+
+        ])
+    }
     
     func configureViewControllers() {
         
