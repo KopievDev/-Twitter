@@ -15,6 +15,7 @@
 		B50FF0FB268B4D6800F49BB6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FF0FA268B4D6800F49BB6 /* Extensions.swift */; };
 		B50FF0FE268BB34F00F49BB6 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FF0FD268BB34F00F49BB6 /* LoginController.swift */; };
 		B50FF100268BB3EC00F49BB6 /* RegistationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FF0FF268BB3EC00F49BB6 /* RegistationController.swift */; };
+		B50FF102268BBB9200F49BB6 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FF101268BBB9200F49BB6 /* TextFieldView.swift */; };
 		B5690E05268B0D88008D93F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5690E04268B0D88008D93F8 /* AppDelegate.swift */; };
 		B5690E07268B0D88008D93F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5690E06268B0D88008D93F8 /* SceneDelegate.swift */; };
 		B5690E0E268B0D89008D93F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5690E0D268B0D89008D93F8 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		B50FF0FA268B4D6800F49BB6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B50FF0FD268BB34F00F49BB6 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		B50FF0FF268BB3EC00F49BB6 /* RegistationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistationController.swift; sourceTree = "<group>"; };
+		B50FF101268BBB9200F49BB6 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		B5690E01268B0D88008D93F8 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5690E04268B0D88008D93F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5690E06268B0D88008D93F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		B50FF0EB268B135A00F49BB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B50FF0FA268B4D6800F49BB6 /* Extensions.swift */,
+				B50FF101268BBB9200F49BB6 /* TextFieldView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,6 +96,7 @@
 		B50FF0EF268B139900F49BB6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B50FF0FA268B4D6800F49BB6 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				B50FF0F7268B1A7300F49BB6 /* NotificationsController.swift in Sources */,
 				B50FF0F9268B1A8A00F49BB6 /* ConversationsController.swift in Sources */,
 				B5690E05268B0D88008D93F8 /* AppDelegate.swift in Sources */,
+				B50FF102268BBB9200F49BB6 /* TextFieldView.swift in Sources */,
 				B50FF100268BB3EC00F49BB6 /* RegistationController.swift in Sources */,
 				B50FF0FB268B4D6800F49BB6 /* Extensions.swift in Sources */,
 				B50FF0FE268BB34F00F49BB6 /* LoginController.swift in Sources */,
