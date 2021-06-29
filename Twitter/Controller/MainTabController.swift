@@ -12,7 +12,7 @@ class MainTabController: UITabBarController {
     // MARK: - Properties
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "line.horizontal.3.circle"), for: .normal)
+        button.setImage(UIImage(named: "new_twitt"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .white
         button.backgroundColor = .blue
@@ -30,18 +30,9 @@ class MainTabController: UITabBarController {
     // MARK: - Helpers
     func configureUI() {
         view.addSubview(actionButton)
-        createConstraints()
-    }
-    
-    func createConstraints() {
-        NSLayoutConstraint.activate([
-            // Button
-            actionButton.heightAnchor.constraint(equalToConstant: 56),
-            actionButton.widthAnchor.constraint(equalToConstant: 56),
-            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -64),
-            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-
-        ])
+        actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor,
+                            paddingBottom: 64, paddingRight: 16, width: 56, height: 56)
+        
     }
     
     func configureViewControllers() {
