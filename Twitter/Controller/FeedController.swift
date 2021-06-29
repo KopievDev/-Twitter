@@ -14,9 +14,15 @@ class FeedController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        configureUI()
     }
     
     // MARK: - Helpers
-    
+    func configureUI() {
+        view.backgroundColor = .white
+        let logoImageView = UIImageView(image: UIImage(named: "twitter_logo"))
+        logoImageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = logoImageView
+        
+    }
 }
