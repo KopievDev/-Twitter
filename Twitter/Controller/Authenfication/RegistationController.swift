@@ -13,8 +13,11 @@ class RegistationController: UIViewController {
         let iv = UIImageView(image: UIImage(systemName: "photo"))
         iv.tintColor = .white
         iv.contentMode = .scaleAspectFit
+        iv.isUserInteractionEnabled = true
+        
         return iv
     }()
+    let imagePicker = UIImagePickerController()
     
     let emailContainer = TextFieldView(placeholder: "Email", image: "envelope")
     let passwordContainer = TextFieldView(placeholder: "Password", image: "lock")
@@ -40,7 +43,7 @@ class RegistationController: UIViewController {
                                                     [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
                                                      NSAttributedString.Key.foregroundColor : UIColor.white]))
         button.setAttributedTitle(attributedTitle, for: .normal)
-//        button.addTarget(self, action: #selector(sighUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
         return button
         
     }()
@@ -51,6 +54,14 @@ class RegistationController: UIViewController {
         configureUI()
     }
     // MARK: - Selectors
+    @objc func handleAddProfilePhoto() {
+        animateView(logoImageView)
+        present(imagePicker, animated: true)
+    }
+    
+    @objc func handleShowLogin() {
+        navigationController?.popViewController(animated: true)
+    }
     
     // MARK: - Helpers
     
@@ -63,6 +74,7 @@ class RegistationController: UIViewController {
         view.addSubview(usernameContainer)
         view.addSubview(loginButton)
         view.addSubview(signUpButton)
+        logoImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleAddProfilePhoto)))
 
         logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 50)
         logoImageView.setDimensions(width: 200, height: 200)
@@ -76,4 +88,17 @@ class RegistationController: UIViewController {
         
         
     }
+    private func animateView(_ viewToAnimate: UIView) {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.5, options: .curveEaseIn) {
+            viewToAnimate.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1, options: .curveEaseIn) {
+            viewToAnimate.transform = .identity
+            
+        }
+    }
+}
+
+extension RegistationController: UIImagePickerControllerDelegate {
+    
 }
