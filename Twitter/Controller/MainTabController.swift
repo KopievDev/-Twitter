@@ -15,8 +15,9 @@ class MainTabController: UITabBarController {
         button.setImage(UIImage(named: "new_twitt"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .white
-        button.backgroundColor = .blue
+        button.backgroundColor = .twitterBlue
         button.layer.cornerRadius = 28
+        button.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -25,6 +26,12 @@ class MainTabController: UITabBarController {
         super.viewDidLoad()
         configureViewControllers()
         configureUI()
+    }
+    
+    // MARK: - Selectors
+    
+    @objc func actionButtonTapped() {
+        
     }
     
     // MARK: - Helpers
