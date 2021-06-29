@@ -14,7 +14,7 @@ class ExploreController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .systemTeal
     }
     
     // MARK: - Helpers

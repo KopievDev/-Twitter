@@ -14,6 +14,8 @@ class NotificationsController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemGreen
+
     }
     
     // MARK: - Helpers
