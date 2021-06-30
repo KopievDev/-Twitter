@@ -14,10 +14,9 @@ class RegistationController: UIViewController {
         iv.tintColor = .white
         iv.contentMode = .scaleAspectFit
         iv.isUserInteractionEnabled = true
-        iv.layer.cornerRadius = 100
-        iv.clipsToBounds = true
-        iv.layer.borderWidth = 1
-        iv.layer.borderColor = UIColor.white.cgColor
+//        iv.clipsToBounds = true
+//        iv.layer.borderWidth = 1
+//        iv.layer.borderColor = UIColor.white.cgColor
         return iv
     }()
     let imagePicker = UIImagePickerController()
@@ -33,7 +32,7 @@ class RegistationController: UIViewController {
         button.setTitleColor(.twitterBlue, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.layer.cornerRadius = 12
-//        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSighUp), for: .touchUpInside)
         return button
     }()
     
@@ -62,6 +61,14 @@ class RegistationController: UIViewController {
         present(imagePicker, animated: true)
     }
     
+    @objc func handleSighUp() {
+        let tabBar = MainTabController()
+        dismiss(animated: true) {
+            self.present(tabBar, animated: true)
+        }
+        
+    }
+
     @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
     }
@@ -81,7 +88,7 @@ class RegistationController: UIViewController {
         imagePicker.allowsEditing = true
         logoImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleAddProfilePhoto)))
 
-        logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 50)
+        logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 20)
         logoImageView.setDimensions(width: 200, height: 200)
         
         emailContainer.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 16, paddingRight: 16, height: 50)
@@ -108,8 +115,17 @@ class RegistationController: UIViewController {
 extension RegistationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else {return}
-        logoImageView.image = image
+        setNew(image: image)
         dismiss(animated: true)
+    }
+    
+    func setNew(image: UIImage) {
+        logoImageView.image = image
+        logoImageView.clipsToBounds = true
+        logoImageView.layer.borderWidth = 3
+        logoImageView.layer.borderColor = UIColor.white.cgColor
+        logoImageView.layer.cornerRadius = 100
+        logoImageView.contentMode = .scaleAspectFill
     }
     
 }
