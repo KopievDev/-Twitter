@@ -14,7 +14,10 @@ class RegistationController: UIViewController {
         iv.tintColor = .white
         iv.contentMode = .scaleAspectFit
         iv.isUserInteractionEnabled = true
-        
+        iv.layer.cornerRadius = 100
+        iv.clipsToBounds = true
+        iv.layer.borderWidth = 1
+        iv.layer.borderColor = UIColor.white.cgColor
         return iv
     }()
     let imagePicker = UIImagePickerController()
@@ -74,6 +77,8 @@ class RegistationController: UIViewController {
         view.addSubview(usernameContainer)
         view.addSubview(loginButton)
         view.addSubview(signUpButton)
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         logoImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleAddProfilePhoto)))
 
         logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 50)
@@ -91,6 +96,7 @@ class RegistationController: UIViewController {
     private func animateView(_ viewToAnimate: UIView) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.5, options: .curveEaseIn) {
             viewToAnimate.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            
         }
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1, options: .curveEaseIn) {
             viewToAnimate.transform = .identity
@@ -99,6 +105,11 @@ class RegistationController: UIViewController {
     }
 }
 
-extension RegistationController: UIImagePickerControllerDelegate {
+extension RegistationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else {return}
+        logoImageView.image = image
+        dismiss(animated: true)
+    }
     
 }
