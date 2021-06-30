@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistationController: UIViewController {
     // MARK: - Properties
@@ -14,9 +15,6 @@ class RegistationController: UIViewController {
         iv.tintColor = .white
         iv.contentMode = .scaleAspectFit
         iv.isUserInteractionEnabled = true
-//        iv.clipsToBounds = true
-//        iv.layer.borderWidth = 1
-//        iv.layer.borderColor = UIColor.white.cgColor
         return iv
     }()
     let imagePicker = UIImagePickerController()
@@ -49,7 +47,7 @@ class RegistationController: UIViewController {
         return button
         
     }()
-
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +60,28 @@ class RegistationController: UIViewController {
     }
     
     @objc func handleSighUp() {
-        let tabBar = MainTabController()
-        dismiss(animated: true) {
-            self.present(tabBar, animated: true)
-        }
+        guard let mail = emailContainer.textField.text,
+              let pass = passwordContainer.textField.text,
+              let username = usernameContainer.textField.text,
+              let fullname = fullnameContainer.textField.text else {return}
         
+        Auth.auth().createUser(withEmail: mail, password: pass) { authDataResult, error in
+            if let error = error {
+                print("DEBUG: - \(error.localizedDescription)")
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+                self.present(alert, animated: true)
+            }
+            
+            guard let uid = authDataResult?.user.uid else {return}
+            let value = ["email": mail, "username": username, "fullname":fullname]
+            let ref =  Database.database().reference().child("users").child(uid)
+            ref.updateChildValues(value) { (_,_) in
+                print("DEBUG: - Successfully updates user informations")
+            }
+        }
     }
-
+    
     @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
     }
