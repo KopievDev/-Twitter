@@ -71,7 +71,12 @@ class RegistationController: UIViewController {
                 let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
                 self.present(alert, animated: true)
+            } else {
+                let alert = UIAlertController(title: "Successed", message: "Пользователь зарегистрирован", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+                self.present(alert, animated: true)
             }
+
             
             guard let uid = authDataResult?.user.uid else {return}
             let value = ["email": mail, "username": username, "fullname":fullname]
