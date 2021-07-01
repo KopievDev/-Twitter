@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,11 +17,11 @@
 		B50FF0FE268BB34F00F49BB6 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FF0FD268BB34F00F49BB6 /* LoginController.swift */; };
 		B50FF100268BB3EC00F49BB6 /* RegistationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FF0FF268BB3EC00F49BB6 /* RegistationController.swift */; };
 		B50FF102268BBB9200F49BB6 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50FF101268BBB9200F49BB6 /* TextFieldView.swift */; };
-		B50FF104268C5B7300F49BB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B50FF103268C5B7300F49BB6 /* GoogleService-Info.plist */; };
 		B5690E05268B0D88008D93F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5690E04268B0D88008D93F8 /* AppDelegate.swift */; };
 		B5690E07268B0D88008D93F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5690E06268B0D88008D93F8 /* SceneDelegate.swift */; };
 		B5690E0E268B0D89008D93F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5690E0D268B0D89008D93F8 /* Assets.xcassets */; };
 		B5690E11268B0D89008D93F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5690E0F268B0D89008D93F8 /* LaunchScreen.storyboard */; };
+		B5E37459268E32C5006D4DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5E37458268E32C5006D4DAC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,6 @@
 		B50FF0FD268BB34F00F49BB6 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		B50FF0FF268BB3EC00F49BB6 /* RegistationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistationController.swift; sourceTree = "<group>"; };
 		B50FF101268BBB9200F49BB6 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
-		B50FF103268C5B7300F49BB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5690E01268B0D88008D93F8 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5690E04268B0D88008D93F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5690E06268B0D88008D93F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		B5690E10268B0D89008D93F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5690E12268B0D89008D93F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B59FD665CBB57928E0A37218 /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5E37458268E32C5006D4DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +156,8 @@
 				B5690E06268B0D88008D93F8 /* SceneDelegate.swift */,
 				B5690E0D268B0D89008D93F8 /* Assets.xcassets */,
 				B5690E0F268B0D89008D93F8 /* LaunchScreen.storyboard */,
+				B5E37458268E32C5006D4DAC /* GoogleService-Info.plist */,
 				B5690E12268B0D89008D93F8 /* Info.plist */,
-				B50FF103268C5B7300F49BB6 /* GoogleService-Info.plist */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -168,7 +168,6 @@
 				A7B763BD0BC28C73E86CD821 /* Pods-Twitter.debug.xcconfig */,
 				6773BD4DFBA0FA585168D3B7 /* Pods-Twitter.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -232,8 +231,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5690E11268B0D89008D93F8 /* LaunchScreen.storyboard in Resources */,
+				B5E37459268E32C5006D4DAC /* GoogleService-Info.plist in Resources */,
 				B5690E0E268B0D89008D93F8 /* Assets.xcassets in Resources */,
-				B50FF104268C5B7300F49BB6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
