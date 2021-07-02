@@ -69,6 +69,12 @@ class RegistationController: UIViewController {
             print("DEBUG: - error to get data from VC")
             return
         }
+        
+        if mail.count < 4 || pass.count < 6 || fullname.count < 2 || username.count < 4 {
+            print("DEBUG: - Enter your data")
+            return
+        }
+        
         let fileName = NSUUID().uuidString
         let storageRef = STORAGE_PROFILE_IMAGE.child(fileName)
         storageRef.putData(imageData, metadata: nil) { (_,_) in
