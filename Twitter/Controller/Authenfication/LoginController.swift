@@ -15,11 +15,11 @@ class LoginController: UIViewController {
         return iv
     }()
     
-    let emailContainer = TextFieldView(placeholder: "Email", image: "envelope")
-    let passwordContainer = TextFieldView(placeholder: "Password", image: "lock")
+    let emailContainer = TextFieldView(placeholder: "Почта", image: "envelope")
+    let passwordContainer = TextFieldView(placeholder: "Пароль", image: "lock")
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Log In", for: .normal)
+        button.setTitle("Войти", for: .normal)
         button.backgroundColor = .white
         button.setTitleColor(.twitterBlue, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
@@ -30,10 +30,10 @@ class LoginController: UIViewController {
     
     let signUpButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ",
+        let attributedTitle = NSMutableAttributedString(string: "Нет учетной записи? ",
                                                         attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16),
                                                                      NSAttributedString.Key.foregroundColor : UIColor.white])
-        attributedTitle.append(NSAttributedString(string: "Sigh Up", attributes:
+        attributedTitle.append(NSAttributedString(string: "Зарегистрироваться", attributes:
                                                     [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
                                                      NSAttributedString.Key.foregroundColor : UIColor.white]))
         button.setAttributedTitle(attributedTitle, for: .normal)

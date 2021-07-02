@@ -19,13 +19,13 @@ class RegistationController: UIViewController {
     }()
     let imagePicker = UIImagePickerController()
     
-    let emailContainer = TextFieldView(placeholder: "Email", image: "envelope")
-    let passwordContainer = TextFieldView(placeholder: "Password", image: "lock")
-    let fullnameContainer = TextFieldView(placeholder: "Full Name", image: "person.crop.circle.badge.checkmark")
-    let usernameContainer = TextFieldView(placeholder: "Username", image: "person.crop.circle")
+    let emailContainer = TextFieldView(placeholder: "Почта", image: "envelope")
+    let passwordContainer = TextFieldView(placeholder: "Пароль", image: "lock")
+    let fullnameContainer = TextFieldView(placeholder: "Полное имя", image: "person.crop.circle.badge.checkmark")
+    let usernameContainer = TextFieldView(placeholder: "Логин", image: "person.crop.circle")
     let signUpButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Sigh Up", for: .normal)
+        button.setTitle("Зарегистрироваться", for: .normal)
         button.backgroundColor = .white
         button.setTitleColor(.twitterBlue, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
@@ -36,10 +36,10 @@ class RegistationController: UIViewController {
     
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedTitle = NSMutableAttributedString(string: "Alredy have an account? ",
+        let attributedTitle = NSMutableAttributedString(string: "Уже есть аккаунт? ",
                                                         attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16),
                                                                      NSAttributedString.Key.foregroundColor : UIColor.white])
-        attributedTitle.append(NSAttributedString(string: "Log In", attributes:
+        attributedTitle.append(NSAttributedString(string: "Войти", attributes:
                                                     [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
                                                      NSAttributedString.Key.foregroundColor : UIColor.white]))
         button.setAttributedTitle(attributedTitle, for: .normal)
