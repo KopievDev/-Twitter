@@ -63,27 +63,47 @@ class RegistationController: UIViewController {
         guard let mail = emailContainer.textField.text,
               let pass = passwordContainer.textField.text,
               let username = usernameContainer.textField.text,
-              let fullname = fullnameContainer.textField.text else {return}
-        
-        Auth.auth().createUser(withEmail: mail, password: pass) { authDataResult, error in
-            if let error = error {
-                print("DEBUG: - \(error.localizedDescription)")
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
-                self.present(alert, animated: true)
-            } else {
-                let alert = UIAlertController(title: "Successed", message: "Пользователь зарегистрирован", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
-                self.present(alert, animated: true)
-            }
+              let fullname = fullnameContainer.textField.text,
+              let profileImage = logoImageView.image,
+              let imageData = profileImage.jpegData(compressionQuality: 0.3) else {
+            print("DEBUG: - error to get data from VC")
+            return
+        }
+        let fileName = NSUUID().uuidString
+        let storageRef = STORAGE_PROFILE_IMAGE.child(fileName)
+        storageRef.putData(imageData, metadata: nil) { (_,_) in
+            print("DEBUG: - Image is uploaded")
+            storageRef.downloadURL { (url, error) in
+                guard let profileImageUrl = url?.absoluteString else {return}
 
-            
-            guard let uid = authDataResult?.user.uid else {return}
-            let value = ["email": mail, "username": username, "fullname":fullname]
-            let ref =  Database.database().reference().child("users").child(uid)
-            ref.updateChildValues(value) { (_,_) in
-                print("DEBUG: - Successfully updates user informations")
+                Auth.auth().createUser(withEmail: mail, password: pass) { [weak self] authDataResult, error in
+                    
+                    self?.showAlert(withError: error)
+                    
+                    guard let uid = authDataResult?.user.uid else {return}
+                    let value = ["email": mail,
+                                 "username": username,
+                                 "fullname":fullname,
+                                 "profileImageUrl":profileImageUrl]
+                    
+                    REF_USERS.child(uid).updateChildValues(value) { (_,_) in
+                        print("DEBUG: - Successfully updates user informations")
+                    }
+                }
             }
+        }
+    }
+    
+    func showAlert(withError error: Error?) {
+        if let error = error {
+            print("DEBUG: - \(error.localizedDescription)")
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            self.present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Successed", message: "Пользователь зарегистрирован", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            self.present(alert, animated: true)
         }
     }
     
